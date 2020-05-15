@@ -1,0 +1,54 @@
+# maths quiz
+# 15/05/2020
+# Brady Fowler
+
+import random
+score = 0
+
+print("Welcome to the maths quiz")
+difficulty = input("Do you want to play easy, medium or hard? ").lower()
+print(difficulty)
+while difficulty not in {'easy', 'medium', 'hard'}:
+    print("invalid input")
+    difficulty = input("Do you want to play easy, medium or hard? ").lower()
+
+while True:
+    if difficulty == "easy":
+        if score >= 5:
+            break
+    if difficulty == "medium":
+        if score >= 10:
+            break
+    if difficulty == "hard":
+        if score >= 15:
+            break
+    x = random.randint(1,5)
+    y = random.randint(1,5)
+    m = random.randint(1,3)
+    if m == 1:
+        ans = x+y
+        solve = input(str(x) + "+_=" + str(ans))
+        if solve == y:
+            print("correct")
+            score = score + 1
+        else:
+            print("incorrect")
+        
+    elif m == 2:
+        ans = x-y
+        solve = input(str(x) + "-_=" + str(ans))
+        if solve == y:
+            print("correct")
+            score = score + 1
+        else:
+            print("incorrect")
+    else:
+        symbol = "*"
+        ans = x*y
+        solve = input(str(x) + "*_=" + str(ans))
+        if solve == y:
+            print("correct")
+            score = score + 1
+        else:
+            print("incorrect")
+    
